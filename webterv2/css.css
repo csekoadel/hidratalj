@@ -1,34 +1,29 @@
+html{
+    background-image: url("image/hatter.jpg");
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
 
-fieldset {
+li {
+    float: left;
+}
+li a {
     display: block;
-    margin-left: 2px;
-    margin-right: 2px;
-    padding-top: 0.35em;
-    padding-bottom: 0.625em;
-    padding-left: 0.75em;
-    padding-right: 0.75em;
-    border: 2px groove;
-}
-
-#kuldes{
-    transition-duration: 0.4s;
-    background-color: mediumseagreen;
     color: white;
-    border: 2px solid mediumseagreen;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
-#kuldes:hover {
-    background-color: transparent;
-    color: black;
-}
-
-#reset:hover {
-    background-color: transparent;
-    color: black;
+li a:hover:not(.active) {
+    background-color: #111;
 }
 
-#reset {
-    background-color: darkred;
-    transition-duration: 0.4s;
-    color: white;
-    border: 2px solid darkred;
+.active {
+    background-color: #04AA6D;
 }
+
