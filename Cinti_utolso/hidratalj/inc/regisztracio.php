@@ -64,7 +64,7 @@ if (isset($_POST["regisztracio"])) {   // ha az űrlapot elküldték...
 
 	*/	
 	if (!isset($_POST["email"]) || trim($_POST["email"]) === "")
-		$hibak[] = "Az email megadása kötelező!";
+		$hibak[] = "A email megadása kötelező!";
 	else {
 		// email foglaltságának ellenőrzése a MySQL adatbázisban
 		$email = trim($_POST["email"]);
@@ -86,11 +86,24 @@ if (isset($_POST["regisztracio"])) {   // ha az űrlapot elküldték...
 	
     if (count($hibak) === 0) {
         $jelszo = sha1($jelszo );
+        //222$fiokok[] = ["nev" => $nev, "email" => $email, "tel" => $tel, "nem" => $nem, "jelszo" => $jelszo, "varos" => $varos, "iranyitoszam" => $iranyitoszam, "kozterulet" => $kozterulet_tipusa, "hazszam" => $hazszam];
         
 			// SQL INSERT INTO parancs használata a felhasználói adatok táblába illesztéséhez
 			$sql = "INSERT INTO felhasznalok (nev, email, tel, nem, jelszo, varos, iranyitoszam, kozterulet_tipusa, hazszam)
 			VALUES ('$nev', '$email', '$tel', '$nem', '$jelszo', '$varos', '$iranyitoszam', '$kozterulet_tipusa', '$hazszam')";
+		
+		/* 
+		INSERT INTO felhasznalok (nev, email, tel, nem, jelszo, varos, iranyitoszam, kozterulet_tipusa, hazszam)
+			VALUES ('Cinty', 'almafa@almafa.com', '06203333333', 'egyeb', '$2y$10$2fHd3C6U9fTtMxPa7oATse9QZlzRKIfyIkoN0tHV8M60ApgsrUJyO', 'asd', '1122', 'utca', '4')
+			
+		itt ellenőrizni kell minden mezőt szépen bele írta-e.
 
+		
+		*/
+		//echo $sql."</br>";
+		
+		/* mert teszteljük előtte, megnézve tényleg átadott minden adatok... */
+		//die();
 		//ha mint látjuk minden ok, mehet a beírás SQL táblába:
 		$result = mysqli_query( $conn , $sql ) or die( mysqli_error( $conn ));
 		/* mivel ezt sokszor le fogod majd írni, érdemes kezdetben így kezelni a hibákat. */

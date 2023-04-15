@@ -13,7 +13,6 @@ function betoltott_felhasznalok($filename)
         $felhasznalok[] = $felhasznalo;
 
     }
-	
 
     fclose($file);
     return $felhasznalok;

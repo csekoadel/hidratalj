@@ -3,108 +3,39 @@
 
 
 <div class="main">
-<div class="cards">
-    <div class="image">
-        <img src="image/elso_kulacs.jpeg" alt="elso_kulacs">
-    </div>
-    <div class="title">
-        <h3>Szivárvány</h3>
-    </div>
-    <div class="description">
-        <p>Kulacsaink különböző prémium minőségű agyagokból készültek.</p><p>Lányoknak és nőknek ajánljuk.</p><br><p><strong>3000Ft</strong></p>
-			<form method="post" action="index.php?oldal=kosar">
-			<input type="hidden" name="termek_id" value="1">
-			<button type="submit">Kosárba</button>
-			</form>
-    </div>
-</div>
 
+	<?php 
+		$sql = "SELECT * FROM termekek WHERE kategoria = 'Kulacs'";
+		$result = mysqli_query($conn, $sql);
 
-              <!-- card -->
+		if (mysqli_num_rows($result) > 0) {
+			while($row = mysqli_fetch_assoc($result)) {
+					?>
+					<div class="cards">
+						<div class="image">
+							<img src="image/<?php echo $row['kep']; ?>" alt="<?php echo $row['nev']; ?>">
+						</div>
+						<div class="title">
+							<h3><?php echo $row['nev']; ?></h3>
+						</div>
+						<div class="description">
+							<p><?php echo $row['leiras']; ?></p>
+							<br>
+							<p><strong><?php echo number_format($row['ar'] , 2 , "." , " "); ?> Ft</strong></p>
+							<form method="post" action="index.php?oldal=kosar">
+								<input type="hidden" name="termek_id" value="<?php echo $row['termekek_id']; ?>">
+								<button type="submit">Kosárba</button>
+							</form>
+						</div>
+					</div>
+					<?php
+			}
+		} else {
+			echo "Nincs találat";
+		}
 
-
-<div class="cards">
-    <div class="image">
-        <img src="image/kulacs.jpeg" alt="kulacs" width="225" >
-    </div>
-    <div class="title">
-        <h3>Kékség</h3>
-    </div>
-    <div class="description">
-        <p>Kulacsaink prémium minőségű agyagokból készültek.</p><p>Lányoknak és nőknek ajánljuk.</p><br><p><strong>4000Ft</strong></p>
-       <form method="post" action="kosar.php">
-			<input type="hidden" name="termek_id" value="2">
-			<button type="submit">Kosárba</button>
-    </div>
-</div>
-
-        <!-- card-->
-
-<div class="cards">
-    <div class="image">
-        <img src="image/hatodik_kulacs.jpeg" alt="hatodik_kulacs">
-    </div>
-    <div class="title">
-        <h3>Cukiság</h3>
-    </div>
-    <div class="description">
-        <p>Kulacsaink prémium minőségű agyagokból készültek.</p><p>Babáknak ajánljuk.</p><br><p><strong>1500Ft</strong></p>
-        <form method="post" action="kosar.php">
-			<input type="hidden" name="termek_id" value="3">
-			<button type="submit">Kosárba</button>
-    </div>
-</div>
-
-            <!-- card-->
-
-<div class="cards">
-    <div class="image">
-        <img src="image/negyedik_kulacs.jpeg" alt="negyedik_kulacs">
-    </div>
-    <div class="title">
-        <h3>Koala</h3>
-    </div>
-    <div class="description">
-        <p>Kulacsaink prémium minőségű agyagokból készültek.</p><p>Kisbabáknak ajánljuk.</p><br><p><strong>1500Ft</strong></p>
-        <form method="post" action="kosar.php">
-			<input type="hidden" name="termek_id" value="4">
-			<button type="submit">Kosárba</button>
-    </div>
-</div>
-
-             <!-- card-->
-
-<div class="cards">
-    <div class="image">
-        <img src="image/otodik_kulacs.jpeg" alt="otodik_kulacs">
-    </div>
-    <div class="title">
-        <h3>Lovacska</h3>
-    </div>
-    <div class="description">
-        <p>Kulacsaink prémium minőségű agyagokból készültek.</p><p>Kislányoknak ajánljuk.</p><br><p><strong>1500Ft</strong></p>
-        <form method="post" action="kosar.php">
-			<input type="hidden" name="termek_id" value="5">
-			<button type="submit">Kosárba</button>
-    </div>
-</div>
-
-                <!-- card-->
-
-<div class="cards">
-    <div class="image">
-        <img src="image/utolso_kulacs.jpeg" alt="utolso_kulacs" width="225" >
-    </div>
-    <div class="title">
-        <h3>Fém kulacs</h3>
-    </div>
-    <div class="description">
-        <p>Kulacsaink prémium minőségű agyagokból készültek.</p><p>Nőknek és férfiaknak ajánljuk.</p><br><p><strong>3000Ft</strong></p>
-       <form method="post" action="kosar.php">
-			<input type="hidden" name="termek_id" value="6">
-			<button type="submit">Kosárba</button>
-    </div>
-</div>
+	?>
+	 
 </div>
 
 

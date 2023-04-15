@@ -22,13 +22,6 @@ if ($result->num_rows > 0) {
 } else {
     echo "Nincs ilyen felhasználói azonosító az adatbázisban.";
 }
-/*
-mára kábé ennyi, lehet késbb még kicsit mojolhatunk rajta, próbáld addig átnézni a programot és ha kérdésed van írd össze és átbeszéljük.
-
-Rendben, nagyon szépen köszönöm, illetve igyekszem haladni tovább azzal, amivel sikerül :)
-
-innen a belépéstől a sessionbe mentettük a felhasználi ID -t. ami minden felhasználnál egyedi, ezalapján tudod azonsoítani majd a rendeléseit is pl.
-*/
 
 
 // Adatbázisból való törlés

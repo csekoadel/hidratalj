@@ -43,13 +43,7 @@ A kosárt próbáltam elkezdeni, ott abban nem vagyok biztos, mit milyen tömbb�
 		if ($result->num_rows > 0) {
 		  echo "<table><tr><th>Megrendelés azonosító</th><th>Felhasználó azonosító</th><th>Megrendelés neve</th><th>Rendelés ideje</th><th>Összesen</th><th></th></tr>";
 		  while($row = $result->fetch_assoc()) {
-			echo "<tr><td>" . $row["megrendeles_id"]. "</td><td>" . $row["felhasznalo_id"]. "</td><td>" . $row["megrendeles_nev"]. "</td><td>" . $row["rendeles_ideje"]. "</td><td>" . $row["osszesen"]. "</td><td>
-			
-			
-			<a href='index.php?oldal=megrendeles_reszletek&megrendeles_id=". $row["megrendeles_id"] . "'>Részletek</a>
-			
-			
-			</td></tr>";
+			echo "<tr><td>" . $row["megrendeles_id"]. "</td><td>" . $row["felhasznalo_id"]. "</td><td>" . $row["megrendeles_nev"]. "</td><td>" . $row["rendeles_ideje"]. "</td><td>" . $row["osszesen"]. "</td><td><a href='megrendeles_reszletek.php?rend_id=". $row["megrendeles_id"] . "'>Részletek</a></td></tr>";
 		  }
 		  echo "</table>";
 		} else {

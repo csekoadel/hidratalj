@@ -13,7 +13,7 @@
 					?>
 					<div class="cards">
 						<div class="image">
-							<img src="image/<?php echo $row['kep']; ?>" alt="<?php echo $row['nev']; ?>">
+							<img src="<?php echo $row['kep']; ?>" alt="<?php echo $row['nev']; ?>">
 						</div>
 						<div class="title">
 							<h3><?php echo $row['nev']; ?></h3>

@@ -5,7 +5,7 @@
 <div class="main">
 
 	<?php 
-		$sql = "SELECT * FROM termekek WHERE kategoria = 'Termosz'";
+		$sql = "SELECT * FROM termekek WHERE kategoria = 'Kulacs'";
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) > 0) {
@@ -13,7 +13,7 @@
 					?>
 					<div class="cards">
 						<div class="image">
-							<img src="image/<?php echo $row['kep']; ?>" alt="<?php echo $row['nev']; ?>">
+							<img src="<?php echo $row['kep']; ?>" alt="<?php echo $row['nev']; ?>">
 						</div>
 						<div class="title">
 							<h3><?php echo $row['nev']; ?></h3>
@@ -37,5 +37,6 @@
 	?>
 	 
 </div>
+
 
 </html>

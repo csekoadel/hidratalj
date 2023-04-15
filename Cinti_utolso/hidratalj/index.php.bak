@@ -25,10 +25,6 @@ if(isset($_SESSION["hiba"])) {
     <link rel="stylesheet" href="css.css">
     <link rel="icon" type="image/x-icon" href="image/icon.png">
     <meta name="viewport" content="width=device.width">
-	<meta http-equiv="Cache-Control" content="max-age=3600">
-	<meta http-equiv="Expires" content="Wed, 14 Apr 2023 15:30:00 GMT">
-	
-	
 </head>
 <body>
 

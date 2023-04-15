@@ -148,10 +148,7 @@ ezt lecseréltük a temrékek beszúrásához.
 			}
 			//die(); remélem így érthető .
 		
-			
-			unset( $_SESSION["kosar"]);
-			
-			
+		
 			header("location:index.php?oldal=rendeles_leadva_sikeresen");
 			die();
 			

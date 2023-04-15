@@ -1,9 +1,6 @@
 <?php
 session_start();
  
-date_default_timezone_set('Europe/Budapest');
-
- 
 /*
 $conn = new mysqli("sql305.byethost8.com", "b8_33974532", "Kedvencem11", "b8_33974532_teszt") or die(mysqli_connect_error());
 */

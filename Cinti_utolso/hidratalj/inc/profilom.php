@@ -9,19 +9,13 @@ function nemet_konvertal($betujel) {		// egy segédfüggvény, amely visszaadja 
     }
 }
 ?>
-
-<style>
-    ul, li {
-        color: black;
-    }
-	footer>li{
-		color:white;
-	}
-</style>
- 
+<div id="page-container">
+    <div id="content-wrap">
+		
 <section id="content">
-    <h2>Profilom</h2>
-    <hr/>
+<h3 style="margin-top:50px;">Profilom</h3>
+	<hr/>
+				
 
 
 <?php
@@ -35,7 +29,7 @@ $result = mysqli_query($conn, $sql);
 if ($result) {
     $row = mysqli_fetch_assoc($result); 
     // Profilkép
-    echo "<img src='" . $row["profilkep"] . "' alt='Profilkép' width='40' height='40'>";
+    echo "<img src='" . $row["profilkep"] . "' alt='Profilkép' width='70' height='70'>";
 
     // Felhasználói adatok
     echo "<ul>";
@@ -61,10 +55,40 @@ if ($result) {
 <form action="index.php?oldal=torles" method="POST">
    <button type="submit" name="torles">Profil törlése</button>
 </form>
+<form action="index.php?oldal=modositas" method="POST">
+   <button type="submit" name="modositas">Profil módosítása</button>
+</form>
 
 
-</section>
+<?php 
 
+// A felhasználó azonosítója
+$felhasznalo_id = $_SESSION["felhasznalo_id"];
 
- 
+$sql = "SELECT megrendeles.megrendeles_id, megrendeles.rendeles_ideje, megrendeles.osszesen, megrendeles_termekek.termekek_nev, megrendeles_termekek.ar, 			megrendeles_termekek.mennyiseg 
+        FROM megrendeles 
+        JOIN megrendeles_termekek ON megrendeles.megrendeles_id = megrendeles_termekek.megrendeles_id 
+        WHERE megrendeles.felhasznalo_id = $felhasznalo_id 
+        ORDER BY megrendeles.rendeles_ideje DESC";
+
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+	
+    echo "<table><thead><tr><th>Megrendelés azonosítója</th><th>Rendelés dátuma</th><th>Termék neve</th><th>Ár</th><th>Mennyiség</th><th>Összesen</th></tr></thead><tbody>";
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>" . $row["megrendeles_id"] . "</td><td>" . $row["rendeles_ideje"] . "</td><td>" . $row["termekek_nev"] . "</td><td>" . $row["ar"] . "</td><td>" . $row["mennyiseg"] . "</td><td>" . $row["osszesen"] . "</td></tr>";
+    }
+    echo "</tbody></table>";
+} else {
+    echo "Nincs megrendelés.";
+}
+
+$conn->close();
+
+?>
+</div>
+ </section>
+ </div>
+
  
